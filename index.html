@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='author' content='Kevin Volkel'>
+    <meta name='description' content=''>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <meta name='og:title' content=''>
+    <meta name='og:description' content=''>
+    <meta name='og:image' content=''>
+
+    <title>Updating List</title>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='shortcut icon' href='' type='image/x-icon'>
+</head>
+<body>
+    <div class="formContainer">
+        <form>
+            <div class="firstNameDiv">
+                <label for="firstName">First Name<sup>*</sup>: </label>
+                <input id="firstName" type="text" value="Kevin">
+            </div>
+
+            <div class="lastNameDiv">
+                <label for="lastName">Last Name<sup>*</sup>: </label>
+                <input id="lastName" type="text" value="Volkel">
+            </div>
+
+            <div class="dobDiv">
+                <label for="dob">Date of Birth<sup>*</sup>: </label>
+                <input id="dob" type="date" value="2004-01-15">
+            </div>
+
+            <div class="leavingCityDiv">
+                <label for="leavingCity">Leaving City<sup>*</sup>: </label>
+                <input type="text" id="leavingCity" value="Las Vegas, NV">
+            </div>
+
+            <div class="arrivingCityDiv">
+                <label for="arrivingCity">Arriving City<sup>*</sup>: </label>
+                <input type="text" id="arrivingCity" value="Phoenix, AZ">
+            </div>
+
+            <div class="leaveDate">
+                <label for="leaveDate">Date of Leave<sup>*</sup>: </label>
+                <input id="leaveDate" type="date" value="2021-04-10">
+            </div>
+
+            <div class="returnDate">
+                <label for="departure">Date of Return<sup>*</sup>: </label>
+                <input id="returnDate" type="date" value="2021-04-12">
+            </div>
+
+            <div class="bagsDiv">
+                <label for="bags">How Many Bags?: </label>
+                <input type="number" id="bags" value="0">
+            </div>
+            <label for="mealDiv" class="extrasLabel">What meal would you like?: </label>
+            <div class="mealDiv" style="margin-bottom: 0;">
+                <div>
+                    <input type="radio" id="fish" name="meal">
+                    <label for="fish">Fish</label>
+                </div>
+                <div>
+                    <input type="radio" id="chicken" name="meal">
+                    <label for="chicken">Chicken</label>
+                </div>
+                <div>
+                    <input type="radio" id="vegetarian" name="meal">
+                    <label for="vegetarian">Vegetarian</label>
+                </div>
+            </div>
+            <label for="extrasDiv" class="extrasLabel">Any extra features? ($10 per)</label>
+            <div class="extrasDiv" style="margin-bottom: 0;">
+                <div>
+                    <input type="checkbox" name="extras" id="legroom">
+                    <label for="legroom" style="font-size: 0.8rem;">Extra Legroom</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" id="windowSeat">
+                    <label for="windowSeat" style="font-size: 0.8rem;">Window Seat</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" id="headphones">
+                    <label for="headphones" style="font-size: 0.8rem;">Headphones</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" id="extraFood">
+                    <label for="extraFood" style="font-size: 0.8rem;">Extra Food</label>
+                </div>
+            </div>
+        </form>
+        <button id="submitButton" onclick="submitInfo()">Submit</button>
+    </div>
+
+    <main>
+        <div class="searchDiv">
+            <div class="search">
+                <button id="searchButton" onclick = "print()">Search</button>
+                <input type="search" name="searchbar" id="searchBar" placeholder="First Last">
+            </div>
+
+            <div class="dropDown">
+                <label for="searchOptions">Please Select Your Passenger</label>
+                <select name="passengers" id="passengers" onchange="selectOption();">
+                    <option>Name</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="output firstNameOut" class="formOutput">
+            <p>First Name: </p>
+            <input type="text" id="firstNameOutput" class="formOutput">
+        </div>
+        <div class="output lastNameOut">
+            <p>Last Name: </p>
+            <input type="text" id="lastNameOutput" class="formOutput">
+        </div>
+        <div class="output dobOut">
+            <p>Date of Birth: </p>
+            <input type="date" id="dobOutput" class="formOutput">
+        </div>
+        <div class="output bagsOut">
+            <p>Bags: </p>
+            <input type="text" id="bagsOutput" class="formOutput">
+        </div>
+        <div class="output idOut">
+            <p>ID: </p>
+            <input type="text" id="idOutput" disabled class="formOutput">
+        </div>
+        <div class="output departingOut">
+            <p>Departing City:</p>
+            <input type="text" id="departingOutput" class="formOutput">
+        </div>
+        <div class="output arrivingOut">
+            <p>Arriving City:</p>
+            <input type="text" id="arrivingOutput" class="formOutput">
+        </div>
+        <div class="output leavingOut">
+            <p>Leaving Date: </p>
+            <input type="date" id="leavingOutput" class="formOutput">
+        </div>
+        <div class="output returningOut">
+            <p>Returning Date: </p>
+            <input type="date" id="returningOutput" class="formOutput">
+        </div>
+        <div class="output durationOut">
+            <p>Duration: </p>
+            <input type="text" id="durationOutput" disabled class="formOutput">
+        </div>
+        <div class="output mealOut">
+            <p>Meal: </p>
+            <input type="text" id="mealOutput" class="formOutput">
+        </div>
+        <div class="output ageOut">
+            <p>Age: </p>
+            <input type="text" id="ageOutput" disabled class="formOutput">
+        </div>
+        <div class="output extrasOut">
+            <p>Extras: </p>
+            <input type="text" id="extrasOutput" class="formOutput">
+        </div>
+        <div class="output costOut">
+            <p>Cost: </p>
+            <input type="text" id="costOutput" disabled class="formOutput">
+        </div>
+        <button class="submitChanges" onclick="submitChanges()">SUBMIT CHANGES</button>
+    </main>
+    <section>
+        <div class="buttonListContainer">
+            <button id="printButton" onclick="printNames()">PRINT NAMES</button>
+            <div class="listItem" style="font-weight: bold; text-decoration-line: underline; cursor: default;">
+                <p>NAME</p>
+                <p>ID</p>
+            </div>
+            <ul id="nameList"></ul>
+        </div>
+
+        <select id="sort">
+            <option value="ID">ID</option>
+            <option value="lastName`">Last Name</option>
+            <option value="firstName">First Name</option>
+        </section>
+    </select>
+
+    <script src="script.js"></script>
+</body>
+</html>

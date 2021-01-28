@@ -1,0 +1,253 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+}
+
+input{
+    width: calc(auto - 1rem);
+}
+
+#bags{
+    width: 20%;
+}
+
+body{
+    height: 100vh;
+    background-color: gray;
+}
+
+
+.formContainer{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-left: 2vw;
+    margin-top: 7.5vh;
+    width: 25vw;
+    height: auto;
+    border: 2px solid black;
+    background-color: lightblue;
+    float: left;
+}
+
+form div{
+    margin-bottom: 1.5rem;
+}
+
+.mealDiv, .extrasDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
+.extrasDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.extrasLabel, .mealLabel{
+    border-top: 2px black solid;
+    padding-top: 10px;
+}
+
+#submitButton{
+    width: 50%;
+    margin-left: 2vw;
+    margin: 1rem auto;
+}
+
+main{
+    padding: 1rem;
+    margin-top: 7.5vh;
+    margin-right: 2vw;
+    float: right;
+    background-color: lightblue;
+    border: black 2px solid;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 
+    "search search search search search"
+    "firstName firstName . lastName lastName"
+    "dob dob . bags bags"
+    "departing departing departing id id"
+    "arriving arriving arriving arriving arriving"
+    "leaving leaving . returning returning"
+    "duration duration meal meal age"
+    "extras extras extras . cost"
+    ". . button . .";
+}
+
+.output{
+    display: flex;
+    margin-top: 1rem;
+    gap: 5px;
+}
+
+.searchDiv{
+    grid-area: search;
+    display: flex;
+    justify-content: space-evenly;
+}
+.firstNameOut{
+    grid-area: firstName;
+}
+.lastNameOut{
+    grid-area: lastName;
+}
+.dobOut{
+    grid-area: dob;
+}
+.bagsOut{
+    grid-area: bags;
+}
+.departingOut{
+    grid-area: departing;
+}
+.arrivingOut{
+    grid-area: arriving;
+}
+.leavingOut{
+    grid-area: leaving;
+}
+.returningOut{
+    grid-area: returning;
+}
+.durationOut{
+    grid-area: duration;
+}
+.mealOut{
+    grid-area: meal;
+}
+.ageOut{
+    grid-area: age;
+}
+.extrasOut{
+    grid-area: extras;
+}
+.costOut{
+    grid-area: cost;
+}
+.submitChanges{
+    grid-area: button;
+}
+.idOut{
+    grid-area: id;
+}
+#idOutput{
+    border-bottom: 2px solid black;
+}
+
+main div input{
+    border: none;
+    border-bottom: 2px black solid;
+    background-color: lightblue;
+    outline: none;
+}
+
+section{
+    float: right;
+    width: 60vw;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 2px solid black;
+    background-color: lightblue;
+    margin-right: 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#printButton{
+    width: 20rem;
+    margin: 0 auto;
+}
+
+section ul{
+    list-style: none;
+}
+
+.listItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#sort{
+    margin: 0 auto;
+    height: 1.1rem;
+}
+
+@media screen and (max-width: 700px){
+
+    body{
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .formContainer, section, main{
+        width: 80vw;
+        margin: 1rem auto;
+    }
+    section, main{
+        padding: 0;
+    }
+
+    input{
+        width: auto;
+    }
+
+    form{
+        display: grid;
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mealLabel, .extrasLabel{
+        border: none;
+    }
+    .mealLabel::before, .extrasLabel::before{
+        border: none;
+    }
+
+    main{
+        display: grid;
+        grid-template-areas: 
+        "search search"
+        "firstName firstName"
+        "lastName lastName"
+        "dob dob"
+        "bags bags"
+        "departing departing"
+        "id id"
+        "arriving arriving"
+        "leaving leaving"
+        "returning returning"
+        "duration duration"
+        "meal meal"
+        "age age"
+        "extras extras"
+        "cost cost"
+        "button button";
+    }
+    .searchDiv{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .searchDiv{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .searchDiv button{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .output{
+        margin: 0.25rem auto;
+    }
+}
