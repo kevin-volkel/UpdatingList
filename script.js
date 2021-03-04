@@ -124,7 +124,7 @@ function submitInfo(){
     
     let passenger;
 
-    if(firstName && lastName && dob && leavingCity && arrivingCity && leaveDate && returnDate){
+    if(firstName && lastName && dob && leavingCity && arrivingCity && leave`Date` && returnDate){
         passenger = new Passenger(firstName, lastName, dob, leavingCity, arrivingCity, leaveDate, returnDate, bags, meal, extras);
         passengerArray.push(passenger);
         document.getElementById("firstName").value = "";
